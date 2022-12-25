@@ -6,13 +6,13 @@
 /*   By: huaydin <huaydin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 13:25:30 by huaydin           #+#    #+#             */
-/*   Updated: 2022/12/25 16:08:24 by huaydin          ###   ########.fr       */
+/*   Updated: 2022/12/25 23:55:08 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-static void	check_if_sorted_or_has_dublicate(t_array_value *arr)
+static void	check_if_sorted_or_has_dublicate(t_stacks *arr)
 {
 	int	i;
 	int	j;
@@ -41,7 +41,7 @@ static void	check_if_sorted_or_has_dublicate(t_array_value *arr)
 	ft_exit(arr, NULL);
 }
 
-void	arg_count2(int argc, char **argv, t_array_value *arr)
+void	arg_count2(int argc, char **argv, t_stacks *arr)
 {
 	int	i;
 	int	k;
@@ -70,7 +70,7 @@ void	arg_count2(int argc, char **argv, t_array_value *arr)
 	check_if_sorted_or_has_dublicate(arr);
 }
 
-void	arg_count(int argc, char **argv, t_array_value *arr)
+void	arg_count(int argc, char **argv, t_stacks *arr)
 {
 	int	i;
 	int	k;
@@ -89,7 +89,7 @@ void	arg_count(int argc, char **argv, t_array_value *arr)
 	arr->k = k - 1;
 }
 
-void	make_index(t_array_value *arr)
+void	make_index(t_stacks *arr)
 {
 	int	*new_a;
 	int	i;
@@ -118,7 +118,7 @@ void	make_index(t_array_value *arr)
 	arr->a = new_a;
 }
 
-void	ft_exit(t_array_value *ptr, char *err)
+void	ft_exit(t_stacks *ptr, char *err)
 {
 	if (err)
 		write(2, err, ft_strlen(err));

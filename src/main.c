@@ -6,7 +6,7 @@
 /*   By: huaydin <huaydin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 13:25:12 by huaydin           #+#    #+#             */
-/*   Updated: 2022/12/25 16:06:40 by huaydin          ###   ########.fr       */
+/*   Updated: 2022/12/25 23:56:14 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	check_args(int argc, char **argv)
 
 int	main(int argc, char **argv)
 {
-	t_array_value	*arr;
+	t_stacks	*arr;
 
 	check_args(argc, argv);
 	arr = malloc(sizeof * arr);

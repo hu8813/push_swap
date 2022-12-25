@@ -6,42 +6,42 @@
 /*   By: huaydin <huaydin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 15:36:39 by huaydin           #+#    #+#             */
-/*   Updated: 2022/12/25 16:02:07 by huaydin          ###   ########.fr       */
+/*   Updated: 2022/12/25 23:54:57 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	sort_3(t_array_value *arr)
+void	sort_3(t_stacks *arr)
 {
 	if (2 != arr->a[2])
 	{
 		if (2 == arr->a[0])
-			rotate_ab(arr->a, arr->a_size, "left", "a");
+			rotate_ab(arr->a, arr->a_size, "up", "a");
 		else
-			rotate_ab(arr->a, arr->a_size, "right", "a");
+			rotate_ab(arr->a, arr->a_size, "down", "a");
 	}
 	if (arr->a[0] > arr->a[1])
 		swap_ab("sa", arr->a, arr->a_size);
 }
 
-void	sort_4_5(t_array_value *arr)
+void	sort_4_5(t_stacks *arr)
 {
 	while (arr->b_size <= 1)
 	{
 		if (0 == arr->a[0] || 1 == arr->a[0])
 			push_ab("pb", arr);
 		else
-			rotate_ab(arr->a, arr->a_size, "left", "a");
+			rotate_ab(arr->a, arr->a_size, "up", "a");
 	}
 	if (0 == arr->b[0])
 		swap_ab("sb", arr->b, arr->b_size);
 	if (4 != arr->a[2])
 	{
 		if (4 == arr->a[0])
-			rotate_ab(arr->a, arr->a_size, "left", "a");
+			rotate_ab(arr->a, arr->a_size, "up", "a");
 		else
-			rotate_ab(arr->a, arr->a_size, "right", "a");
+			rotate_ab(arr->a, arr->a_size, "down", "a");
 	}
 	if (arr->a[0] > arr->a[1])
 		swap_ab("sa", arr->a, arr->a_size);
@@ -49,7 +49,7 @@ void	sort_4_5(t_array_value *arr)
 	push_ab("pa", arr);
 }
 
-void	sort_radix(t_array_value *arr)
+void	sort_radix(t_stacks *arr)
 {
 	int	j;
 	int	i;
@@ -67,10 +67,10 @@ void	sort_radix(t_array_value *arr)
 		size = arr->a_size;
 		while (++i < size)
 		{
-			if (((arr->a[0] >> j) & 0x01) == 0)
+			if (((arr->a[0] >> j) & 1) == 0)
 				push_ab("pb", arr);
 			else
-				rotate_ab(arr->a, arr->a_size, "left", "a");
+				rotate_ab(arr->a, arr->a_size, "up", "a");
 		}
 		while (arr->b_size != 0)
 			push_ab("pa", arr);
