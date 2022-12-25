@@ -6,7 +6,7 @@
 /*   By: huaydin <huaydin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 13:25:12 by huaydin           #+#    #+#             */
-/*   Updated: 2022/12/25 23:56:14 by huaydin          ###   ########.fr       */
+/*   Updated: 2022/12/26 00:01:30 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	main(int argc, char **argv)
 	{
 		make_index(arr);
 		if (arr->a_size == 2 && arr->a[0] > arr->a[1])
-			swap_ab("sa", arr->a, arr->a_size);
+			swap("sa", arr->a, arr->a_size);
 		else if (arr->a_size == 3)
 			sort_3(arr);
 		else if (arr->a_size >= 4 && arr->a_size <= 5)

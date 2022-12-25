@@ -6,13 +6,13 @@
 /*   By: huaydin <huaydin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 13:25:20 by huaydin           #+#    #+#             */
-/*   Updated: 2022/12/25 23:54:48 by huaydin          ###   ########.fr       */
+/*   Updated: 2022/12/26 00:01:42 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	swap_ab(char *s, int *array, int size)
+void	swap(char *s, int *array, int size)
 {
 	int	tmp;
 
@@ -24,7 +24,7 @@ void	swap_ab(char *s, int *array, int size)
 	ft_putendl_fd(s, 1);
 }
 
-void	push_ab(char *s, t_stacks *arr)
+void	push(char *s, t_stacks *arr)
 {
 	int	tmp;
 
@@ -53,7 +53,7 @@ void	push_ab(char *s, t_stacks *arr)
 	ft_putendl_fd(s, 1);
 }
 
-void	rotate_ab(int *array, int size, char *direction, char *list)
+void	rotate(int *array, int size, char *direction, char *list)
 {
 	int	tmp;
 

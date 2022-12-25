@@ -6,7 +6,7 @@
 /*   By: huaydin <huaydin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 13:25:59 by huaydin           #+#    #+#             */
-/*   Updated: 2022/12/25 23:57:21 by huaydin          ###   ########.fr       */
+/*   Updated: 2022/12/26 00:01:18 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ typedef struct s_stacks
 }			t_stacks;
 
 int			main(int argc, char **argv);
-void		rotate_ab(int *array, int size, char *direction, char *list);
-void		swap_ab(char *s, int *array, int size);
-void		push_ab(char *s, t_stacks *arr);
+void		rotate(int *array, int size, char *direction, char *list);
+void		swap(char *s, int *array, int size);
+void		push(char *s, t_stacks *arr);
 void		sort_3(t_stacks *arr);
 void		sort_4_5(t_stacks *arr);
 void		sort_radix(t_stacks *arr);
