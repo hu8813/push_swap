@@ -6,7 +6,7 @@
 /*   By: huaydin <huaydin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 13:25:30 by huaydin           #+#    #+#             */
-/*   Updated: 2022/12/27 00:10:33 by huaydin          ###   ########.fr       */
+/*   Updated: 2022/12/27 00:11:41 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,7 @@ void	check_if_sorted_or_has_duplicate(t_stacks *s)
 	while (i < s->a_size - 1)
 	{
 		if (s->a[i] > s->a[i + 1])
-		{
 			return ;
-		}
 		i++;
 	}
 	free_and_exit_with_message(s, NULL);
