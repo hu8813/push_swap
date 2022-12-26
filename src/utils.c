@@ -6,7 +6,7 @@
 /*   By: huaydin <huaydin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 13:25:30 by huaydin           #+#    #+#             */
-/*   Updated: 2022/12/27 00:06:14 by huaydin          ###   ########.fr       */
+/*   Updated: 2022/12/27 00:07:53 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	parse_numbers(int argc, char **argv, t_stacks *s)
 		j = ft_count_words(argv[z + 1], ' ');
 		if (j == 1)
 			s->a[k] = ft_atoi(argv[z + 1]);
-		else if (j > 1)
+		else if (j > 11)
 		{
 			tmp = ft_split(argv[z + 1], ' ');
 			i = 0;
