@@ -6,13 +6,13 @@
 /*   By: huaydin <huaydin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 13:25:20 by huaydin           #+#    #+#             */
-/*   Updated: 2022/12/26 00:01:42 by huaydin          ###   ########.fr       */
+/*   Updated: 2022/12/26 22:51:46 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	swap(char *s, int *array, int size)
+void	swap(char *str, int *array, int size)
 {
 	int	tmp;
 
@@ -21,36 +21,36 @@ void	swap(char *s, int *array, int size)
 	tmp = array[0];
 	array[0] = array[1];
 	array[1] = tmp;
-	ft_putendl_fd(s, 1);
+	ft_putendl_fd(str, 1);
 }
 
-void	push(char *s, t_stacks *arr)
+void	push(char *str, t_stacks *s)
 {
 	int	tmp;
 
-	if (ft_strncmp(s, "pa", 3) == 0)
+	if (ft_strncmp(str, "pa", 3) == 0)
 	{
-		if (arr->b_size <= 0)
+		if (s->b_size <= 0)
 			return ;
-		tmp = arr->b[0];
-		ft_memmove(arr->a + 1, arr->a, sizeof(int) * arr->a_size);
-		arr->a[0] = tmp;
-		arr->b_size--;
-		ft_memmove(arr->b, arr->b + 1, sizeof(int) * arr->b_size);
-		arr->a_size++;
+		tmp = s->b[0];
+		ft_memmove(s->a + 1, s->a, sizeof(int) * s->a_size);
+		s->a[0] = tmp;
+		s->b_size--;
+		ft_memmove(s->b, s->b + 1, sizeof(int) * s->b_size);
+		s->a_size++;
 	}
-	else if (ft_strncmp(s, "pb", 3) == 0)
+	else if (ft_strncmp(str, "pb", 3) == 0)
 	{
-		if (arr->a_size <= 0)
+		if (s->a_size <= 0)
 			return ;
-		tmp = arr->a[0];
-		ft_memmove(arr->b + 1, arr->b, sizeof(int) * arr->b_size);
-		arr->b[0] = tmp;
-		arr->a_size--;
-		ft_memmove(arr->a, arr->a + 1, sizeof(int) * arr->a_size);
-		arr->b_size++;
+		tmp = s->a[0];
+		ft_memmove(s->b + 1, s->b, sizeof(int) * s->b_size);
+		s->b[0] = tmp;
+		s->a_size--;
+		ft_memmove(s->a, s->a + 1, sizeof(int) * s->a_size);
+		s->b_size++;
 	}
-	ft_putendl_fd(s, 1);
+	ft_putendl_fd(str, 1);
 }
 
 void	rotate(int *array, int size, char *direction, char *list)

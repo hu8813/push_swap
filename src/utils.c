@@ -6,90 +6,87 @@
 /*   By: huaydin <huaydin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 13:25:30 by huaydin           #+#    #+#             */
-/*   Updated: 2022/12/25 23:55:08 by huaydin          ###   ########.fr       */
+/*   Updated: 2022/12/26 22:46:21 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-static void	check_if_sorted_or_has_dublicate(t_stacks *arr)
+void	check_if_sorted_or_has_duplicate(t_stacks *stack)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (i < arr->a_size)
+	while (i < stack->a_size)
 	{
 		j = i + 1;
-		while (j < arr->a_size)
+		while (j < stack->a_size)
 		{
-			if (arr->a[i] == arr->a[j])
-				ft_exit(arr, "Error\n");
+			if (stack->a[i] == stack->a[j])
+				free_and_exit_with_message(stack, "Error\n");
 			j++;
 		}
 		i++;
 	}
 	i = 0;
-	while (i < arr->a_size - 1)
+	while (i < stack->a_size - 1)
 	{
-		if (arr->a[i] > arr->a[i + 1])
+		if (stack->a[i] > stack->a[i + 1])
 		{
 			return ;
 		}
 		i++;
 	}
-	ft_exit(arr, NULL);
+	free_and_exit_with_message(stack, NULL);
 }
 
-void	arg_count2(int argc, char **argv, t_stacks *arr)
+void	parse_numbers(int argc, char **argv, t_stacks *stack)
 {
 	int	i;
 	int	k;
+	int	j;
+	int	z;
 
 	k = 0;
+	j = 0;
+	z = 0;
 	while (argc-- > 1)
 	{
-		arr->k = ft_count_words(argv[arr->argv_indx + 1], ' ');
-		if (arr->k == 1)
-			arr->a[k] = ft_atoi(argv[arr->argv_indx + 1]);
-		else if (arr->k > 1)
+		j = ft_count_words(argv[z + 1], ' ');
+		if (j == 1)
+			stack->a[k] = ft_atoi(argv[z + 1]);
+		else if (j > 1)
 		{
-			arr->tmparr = ft_split(argv[arr->argv_indx + 1], ' ');
-			while (arr->k--)
-				arr->a[k++] = ft_atoi(arr->tmparr[i++]);
+			stack->tmparr = ft_split(argv[z + 1], ' ');
+			while (j--)
+				stack->a[k++] = ft_atoi(stack->tmparr[i++]);
 			i = 0;
-			while (arr->tmparr[i])
-				free(arr->tmparr[i++]);
-			free(arr->tmparr);
-			i = 0;
+			while (stack->tmparr[i])
+				free(stack->tmparr[i++]);
+			free(stack->tmparr);
 			k--;
 		}
-		arr->argv_indx++;
+		z++;
 		k++;
 	}
-	check_if_sorted_or_has_dublicate(arr);
 }
 
-void	arg_count(int argc, char **argv, t_stacks *arr)
+void	initialize_stacks(int argc, char **argv, t_stacks *stack)
 {
 	int	i;
-	int	k;
 
-	k = 0;
 	i = 0;
-	arr->a = 0;
-	arr->tmparr = 0;
-	arr->b = 0;
-	arr->a_size = 0;
-	arr->b_size = 0;
-	arr->argv_indx = 0;
-	while (argc--)
-		k += ft_count_words(argv[i++], ' ');
-	arr->a_size = k - 1;
-	arr->k = k - 1;
+	stack->tmparr = 0;
+	stack->a_size = 0;
+	stack->b_size = 0;
+	while (--argc)
+		stack->a_size += ft_count_words(argv[i++], ' ');
+	stack->a = malloc(stack->a_size * sizeof * stack->a);
+	stack->b = malloc(stack->a_size * sizeof * stack->b);
 }
 
-void	make_index(t_stacks *arr)
+void	create_index(t_stacks *stack)
 {
 	int	*new_a;
 	int	i;
@@ -97,28 +94,28 @@ void	make_index(t_stacks *arr)
 	int	k;
 	int	min;
 
-	new_a = malloc(sizeof(int) * arr->a_size);
+	new_a = malloc(sizeof(int) * stack->a_size);
 	i = 0;
-	while (i < arr->a_size)
+	while (i < stack->a_size)
 	{
 		j = 0;
 		min = 2147483647;
-		while (j < arr->a_size)
+		while (j < stack->a_size)
 		{
-			if (min > arr->a[j++])
+			if (min > stack->a[j++])
 			{
-				min = arr->a[j - 1];
+				min = stack->a[j - 1];
 				k = j - 1;
 			}
 		}
-		arr->a[k] = 2147483647;
+		stack->a[k] = 2147483647;
 		new_a[k] = i++;
 	}
-	free(arr->a);
-	arr->a = new_a;
+	free(stack->a);
+	stack->a = new_a;
 }
 
-void	ft_exit(t_stacks *ptr, char *err)
+void	free_and_exit_with_message(t_stacks *ptr, char *err)
 {
 	if (err)
 		write(2, err, ft_strlen(err));
