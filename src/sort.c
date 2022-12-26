@@ -6,7 +6,7 @@
 /*   By: huaydin <huaydin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 15:36:39 by huaydin           #+#    #+#             */
-/*   Updated: 2022/12/26 17:15:29 by huaydin          ###   ########.fr       */
+/*   Updated: 2022/12/26 18:06:42 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	sort_radix(t_stacks *arr)
 
 	bit_size = 0;
 	size = arr->a_size;
-	while (size > 1 && ++bit_size)
+	while (size > 1 && ++bit_size < 8)
 		size /= 2;
 	i = 0;
 	j = -1;
