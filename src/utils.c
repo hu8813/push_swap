@@ -6,7 +6,7 @@
 /*   By: huaydin <huaydin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 13:25:30 by huaydin           #+#    #+#             */
-/*   Updated: 2022/12/27 00:05:50 by huaydin          ###   ########.fr       */
+/*   Updated: 2022/12/27 00:06:14 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,10 @@ void	parse_numbers(int argc, char **argv, t_stacks *s)
 				s->a[k++] = ft_atoi(tmp[i++]);
 			while (tmp[i])
 				free(tmp[i++]);
-			//k--;
+			k--;
 		}
 		z++;
-		//k++;
+		k++;
 	}
 }
 
