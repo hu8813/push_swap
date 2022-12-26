@@ -6,7 +6,7 @@
 /*   By: huaydin <huaydin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 13:25:30 by huaydin           #+#    #+#             */
-/*   Updated: 2022/12/26 23:55:50 by huaydin          ###   ########.fr       */
+/*   Updated: 2022/12/27 00:05:50 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,13 @@ void	check_if_sorted_or_has_duplicate(t_stacks *s)
 
 void	parse_numbers(int argc, char **argv, t_stacks *s)
 {
+	char	**tmp;
 	int		i;
 	int		k;
 	int		j;
 	int		z;
-	char	**tmp;
 
 	k = 0;
-	j = 0;
 	z = 0;
 	while (argc-- > 1)
 	{
@@ -60,15 +59,15 @@ void	parse_numbers(int argc, char **argv, t_stacks *s)
 		else if (j > 1)
 		{
 			tmp = ft_split(argv[z + 1], ' ');
+			i = 0;
 			while (j--)
 				s->a[k++] = ft_atoi(tmp[i++]);
-			i = 0;
 			while (tmp[i])
 				free(tmp[i++]);
-			k--;
+			//k--;
 		}
 		z++;
-		k++;
+		//k++;
 	}
 }
 
@@ -81,8 +80,8 @@ void	initialize_stacks(int argc, char **argv, t_stacks *s)
 	s->b_size = 0;
 	while (--argc)
 		s->a_size += ft_count_words(argv[i++], ' ');
-	s->a = malloc(s->a_size * sizeof * s->a);
-	s->b = malloc(s->a_size * sizeof * s->b);
+	s->a = malloc(s->a_size * sizeof *s->a);
+	s->b = malloc(s->a_size * sizeof *s->b);
 }
 
 void	create_index(t_stacks *s)
@@ -93,7 +92,7 @@ void	create_index(t_stacks *s)
 	int	k;
 	int	min;
 
-	new_a = malloc(sizeof * new_a * s->a_size);
+	new_a = malloc(sizeof *new_a * s->a_size);
 	i = 0;
 	while (i < s->a_size)
 	{
