@@ -6,7 +6,7 @@
 /*   By: huaydin <huaydin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 13:25:30 by huaydin           #+#    #+#             */
-/*   Updated: 2022/12/27 00:09:25 by huaydin          ###   ########.fr       */
+/*   Updated: 2022/12/27 00:10:21 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,8 @@ void	initialize_stacks(int argc, char **argv, t_stacks *s)
 	s->b_size = 0;
 	while (--argc)
 		s->a_size += ft_count_words(argv[i++], ' ');
-	s->a = malloc(s->a_size * sizeof *s->a);
-	s->b = malloc(s->a_size * sizeof *s->b);
+	s->a = malloc(s->a_size * sizeof * s->a);
+	s->b = malloc(s->a_size * sizeof * s->b);
 }
 
 void	create_index(t_stacks *s)
