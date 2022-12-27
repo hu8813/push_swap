@@ -6,7 +6,7 @@
 /*   By: huaydin <huaydin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 13:25:30 by huaydin           #+#    #+#             */
-/*   Updated: 2022/12/27 00:11:41 by huaydin          ###   ########.fr       */
+/*   Updated: 2022/12/27 15:50:59 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void	create_index(t_stacks *s)
 	int	k;
 	int	min;
 
-	new_a = malloc(sizeof * new_a * s->a_size);
+	new_a = malloc(s->a_size * sizeof * new_a);
 	i = 0;
 	while (i < s->a_size)
 	{
