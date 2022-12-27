@@ -6,7 +6,7 @@
 /*   By: huaydin <huaydin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 13:25:59 by huaydin           #+#    #+#             */
-/*   Updated: 2022/12/27 16:58:17 by huaydin          ###   ########.fr       */
+/*   Updated: 2022/12/27 16:59:12 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define PUSH_SWAP_H
 
 # include "../libft/libft.h"
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 
