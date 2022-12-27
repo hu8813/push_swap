@@ -6,7 +6,7 @@
 /*   By: huaydin <huaydin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 13:25:12 by huaydin           #+#    #+#             */
-/*   Updated: 2022/12/26 23:42:45 by huaydin          ###   ########.fr       */
+/*   Updated: 2022/12/27 20:35:36 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int	main(int argc, char **argv)
 		sort_four_to_five(s);
 	else
 		sort_using_radix_sort(s);
-	free_and_exit_with_message(s, NULL);
+	check_if_sorted_or_has_duplicate(s);
+	free_and_exit_with_message(s, "Error\n");
 	return (0);
 }
