@@ -6,13 +6,13 @@
 /*   By: huaydin <huaydin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 13:25:30 by huaydin           #+#    #+#             */
-/*   Updated: 2022/12/27 16:09:05 by huaydin          ###   ########.fr       */
+/*   Updated: 2022/12/27 20:37:35 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	check_if_sorted_or_has_duplicate(t_stacks *s)
+void	exit_if_sorted_or_has_duplicate(t_stacks *s)
 {
 	int	i;
 	int	j;
