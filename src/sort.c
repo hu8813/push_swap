@@ -6,7 +6,7 @@
 /*   By: huaydin <huaydin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 15:36:39 by huaydin           #+#    #+#             */
-/*   Updated: 2022/12/26 22:47:50 by huaydin          ###   ########.fr       */
+/*   Updated: 2022/12/27 16:51:24 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	sort_three(t_stacks *stack)
 {
-	if (2 != stack->a[2])
+	if (stack->a[2] != 2)
 	{
-		if (2 == stack->a[0])
+		if (stack->a[0] == 2)
 			rotate(stack->a, stack->a_size, "up", "a");
 		else
 			rotate(stack->a, stack->a_size, "down", "a");
@@ -29,16 +29,16 @@ void	sort_four_to_five(t_stacks *stack)
 {
 	while (stack->b_size <= 1)
 	{
-		if (0 == stack->a[0] || 1 == stack->a[0])
+		if (stack->a[0] == 0 || stack->a[0] == 1)
 			push("pb", stack);
 		else
 			rotate(stack->a, stack->a_size, "up", "a");
 	}
-	if (0 == stack->b[0])
+	if (stack->b[0] == 0)
 		swap("sb", stack->b, stack->b_size);
-	if (4 != stack->a[2])
+	if (stack->a[2] != 4)
 	{
-		if (4 == stack->a[0])
+		if (stack->a[0] == 4)
 			rotate(stack->a, stack->a_size, "up", "a");
 		else
 			rotate(stack->a, stack->a_size, "down", "a");
