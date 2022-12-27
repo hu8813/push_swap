@@ -6,7 +6,7 @@
 /*   By: huaydin <huaydin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 13:25:59 by huaydin           #+#    #+#             */
-/*   Updated: 2022/12/26 23:55:21 by huaydin          ###   ########.fr       */
+/*   Updated: 2022/12/27 15:37:16 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ typedef struct s_stacks
 {
 	int		*a;
 	int		*b;
-	int		*index;
 	int		a_size;
 	int		b_size;
 }			t_stacks;
