@@ -6,7 +6,7 @@
 /*   By: huaydin <huaydin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 15:36:39 by huaydin           #+#    #+#             */
-/*   Updated: 2022/12/27 16:51:24 by huaydin          ###   ########.fr       */
+/*   Updated: 2022/12/27 20:28:06 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ void	sort_four_to_five(t_stacks *stack)
 void	sort_using_radix_sort(t_stacks *stack)
 {
 	int	j;
-	int	i;
 	int	bit_size;
 	int	size;
 
@@ -60,13 +59,11 @@ void	sort_using_radix_sort(t_stacks *stack)
 	size = stack->a_size;
 	while (size > 1 && ++bit_size)
 		size /= 2;
-	i = 0;
 	j = -1;
 	while (++j <= bit_size)
 	{
-		i = -1;
 		size = stack->a_size;
-		while (++i < size)
+		while (size--)
 		{
 			if (((stack->a[0] >> j) & 1) == 0)
 				push("pb", stack);
