@@ -6,7 +6,7 @@
 /*   By: huaydin <huaydin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 13:25:30 by huaydin           #+#    #+#             */
-/*   Updated: 2022/12/27 20:37:35 by huaydin          ###   ########.fr       */
+/*   Updated: 2022/12/29 15:57:40 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,16 +92,16 @@ void	create_index(t_stacks *s)
 	while (i < s->a_size)
 	{
 		j = 0;
-		min = 2147483647;
+		min = -1;
 		while (j < s->a_size)
 		{
-			if (s->a[j++] < min)
+			if (min == -1 || s->a[j++] < min)
 			{
 				min = s->a[j - 1];
 				k = j - 1;
 			}
 		}
-		s->a[k] = 2147483647;
+		s->a[k] = -1;
 		new_a[k] = i++;
 	}
 	free(s->a);
