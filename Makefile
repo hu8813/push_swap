@@ -6,7 +6,7 @@
 #    By: huaydin <huaydin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/23 22:14:00 by huaydin           #+#    #+#              #
-#    Updated: 2022/12/26 17:37:38 by huaydin          ###   ########.fr        #
+#    Updated: 2022/12/29 23:15:52 by huaydin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,7 @@ CHECKER = ./push_swap $(ARG) | ./checker_Mac $(ARG)
 endif
 
 test:
-	@$(eval ARG = $(shell shuf -i 0-500 -n $(size)))
+	@$(eval ARG = $(shell seq -1000 1000 | shuf -n $(size)))
 	@echo "Checker result: "
 	$(CHECKER)
 	@echo "Instructions count: "

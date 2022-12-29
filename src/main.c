@@ -6,38 +6,34 @@
 /*   By: huaydin <huaydin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 13:25:12 by huaydin           #+#    #+#             */
-/*   Updated: 2022/12/27 20:37:15 by huaydin          ###   ########.fr       */
+/*   Updated: 2022/12/29 23:31:22 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-static void	validate_arguments(int argc, char **argv)
+void	free_and_exit_with_message(t_stacks *s, char *msg)
 {
-	int	i;
-	int	j;
-
-	if (argc < 2)
-		exit(0);
-	i = 0;
-	while (++i < argc)
+	if (msg)
+		write(2, msg, ft_strlen(msg));
+	if (s != NULL)
 	{
-		j = 0;
-		while (argv[i][j] != '\0')
-		{
-			if (!(argv[i][j] >= '0' && argv[i][j] <= '9') && (argv[i][j] != '-'
-					&& argv[i][j] != '+') && argv[i][j] != ' ')
-				free_and_exit_with_message(NULL, "Error\n");
-			j++;
-		}
+		if (s->a != NULL)
+			free(s->a);
+		if (s->b != NULL)
+			free(s->b);
+		if (s != NULL)
+			free(s);
 	}
+	exit(1);
 }
 
 int	main(int argc, char **argv)
 {
 	t_stacks	*s;
 
-	validate_arguments(argc, argv);
+	if (argc < 2)
+		exit(0);
 	s = malloc(sizeof * s);
 	initialize_stacks(argc, argv, s);
 	parse_numbers(argc, argv, s);

@@ -6,7 +6,7 @@
 /*   By: huaydin <huaydin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 13:25:59 by huaydin           #+#    #+#             */
-/*   Updated: 2022/12/27 22:10:16 by huaydin          ###   ########.fr       */
+/*   Updated: 2022/12/29 23:05:00 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ void		create_index(t_stacks *s);
 void		initialize_stacks(int argc, char **argv, t_stacks *s);
 void		free_and_exit_with_message(t_stacks *s, char *msg);
 void		exit_if_sorted_or_has_duplicate(t_stacks *s);
+int			ft_atol(const char *nptr);
 
 #endif

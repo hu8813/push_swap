@@ -6,7 +6,7 @@
 /*   By: huaydin <huaydin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 13:25:30 by huaydin           #+#    #+#             */
-/*   Updated: 2022/12/29 15:57:40 by huaydin          ###   ########.fr       */
+/*   Updated: 2022/12/29 23:34:00 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,13 @@ void	parse_numbers(int argc, char **argv, t_stacks *s)
 	{
 		j = ft_count_words(argv[z + 1], ' ');
 		if (j == 1)
-			s->a[z] = ft_atoi(argv[z + 1]);
+			s->a[z] = ft_atol(argv[z + 1]);
 		else if (j > 1)
 		{
 			tmp = ft_split(argv[z + 1], ' ');
 			i = 0;
 			while (j--)
-				s->a[z++] = ft_atoi(tmp[i++]);
+				s->a[z++] = ft_atol(tmp[i++]);
 			while (tmp[i])
 				free(tmp[i++]);
 			z--;
@@ -92,7 +92,7 @@ void	create_index(t_stacks *s)
 	while (i < s->a_size)
 	{
 		j = 0;
-		min = -1;
+		min = __INT_MAX__;
 		while (j < s->a_size)
 		{
 			if (min == -1 || s->a[j++] < min)
@@ -101,25 +101,35 @@ void	create_index(t_stacks *s)
 				k = j - 1;
 			}
 		}
-		s->a[k] = -1;
+		s->a[k] = __INT_MAX__;
 		new_a[k] = i++;
 	}
 	free(s->a);
 	s->a = new_a;
 }
 
-void	free_and_exit_with_message(t_stacks *s, char *msg)
+int	ft_atol(const char *nptr)
 {
-	if (msg)
-		write(2, msg, ft_strlen(msg));
-	if (s != NULL)
+	int			i;
+	long		sign;
+	long long	res;
+
+	res = 0;
+	sign = 1;
+	i = 0;
+	while (nptr[i] == ' ' || (nptr[i] >= '\t' && nptr[i] <= '\r'))
+		i++;
+	if (nptr[i] == '+' || nptr[i] == '-')
 	{
-		if (s->a != NULL)
-			free(s->a);
-		if (s->b != NULL)
-			free(s->b);
-		if (s != NULL)
-			free(s);
+		if (nptr[i] == '-')
+			sign = -1;
+		i++;
 	}
-	exit(1);
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+		res = res * 10 + (nptr[i++] - '0');
+	if (nptr[i] != 0 && (nptr[i] > '9' || nptr[i] < '0'))
+		free_and_exit_with_message(NULL, "Error\n");
+	if ((res * sign) < -2147483648 || (res * sign) > 2147483647)
+		free_and_exit_with_message(NULL, "Error\n");
+	return ((int)(res * sign));
 }
