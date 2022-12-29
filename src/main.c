@@ -6,7 +6,7 @@
 /*   By: huaydin <huaydin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 13:25:12 by huaydin           #+#    #+#             */
-/*   Updated: 2022/12/29 23:31:22 by huaydin          ###   ########.fr       */
+/*   Updated: 2022/12/29 23:42:51 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,35 @@ void	free_and_exit_with_message(t_stacks *s, char *msg)
 	exit(1);
 }
 
+static void	validate_arguments(int argc, char **argv)
+{
+	int	i;
+	int	j;
+
+	if (argc < 2)
+		exit(0);
+	i = 0;
+	while (++i < argc)
+	{
+		j = 0;
+		while (argv[i][j] != '\0')
+		{
+			if (!(argv[i][j] >= '0' && argv[i][j] <= '9') && (argv[i][j] != '-'
+					&& argv[i][j] != '+') && argv[i][j] != ' ')
+				free_and_exit_with_message(NULL, "Error\n");
+			j++;
+		}
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	t_stacks	*s;
 
-	if (argc < 2)
-		exit(0);
+	validate_arguments(argc, argv);
 	s = malloc(sizeof * s);
+	if (s == NULL)
+		exit(1);
 	initialize_stacks(argc, argv, s);
 	parse_numbers(argc, argv, s);
 	exit_if_sorted_or_has_duplicate(s);
