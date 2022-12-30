@@ -6,7 +6,7 @@
 /*   By: huaydin <huaydin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 13:25:30 by huaydin           #+#    #+#             */
-/*   Updated: 2022/12/30 18:51:19 by huaydin          ###   ########.fr       */
+/*   Updated: 2022/12/30 22:30:32 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,9 +120,9 @@ int	ft_atol(const char *nptr)
 			sign = -1;
 		i++;
 	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
+	while (ft_isdigit(nptr[i]))
 		res = res * 10 + (nptr[i++] - '0');
-	if (nptr[i] != 0 && (nptr[i] > '9' || nptr[i] < '0'))
+	if (nptr[i] != 0 && !ft_isdigit(nptr[i]) && nptr[i] != ' ')
 		free_and_exit_with_message(NULL, "Error\n");
 	if ((res * sign) < -2147483648 || (res * sign) > 2147483647)
 		free_and_exit_with_message(NULL, "Error\n");
