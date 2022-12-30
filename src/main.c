@@ -6,7 +6,7 @@
 /*   By: huaydin <huaydin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 13:25:12 by huaydin           #+#    #+#             */
-/*   Updated: 2022/12/30 18:43:48 by huaydin          ###   ########.fr       */
+/*   Updated: 2022/12/30 21:58:00 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static void	validate_arguments(int argc, char **argv)
 		j = 0;
 		while (argv[i][j] != '\0')
 		{
-			if (!(argv[i][j] >= '0' && argv[i][j] <= '9') && (argv[i][j] != '-'
+			if (!(ft_isdigit(argv[i][j])) && (argv[i][j] != '-'
 					&& argv[i][j] != '+') && argv[i][j] != ' ')
 				free_and_exit_with_message(NULL, "Error\n");
 			j++;
