@@ -6,7 +6,7 @@
 /*   By: huaydin <huaydin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 15:36:39 by huaydin           #+#    #+#             */
-/*   Updated: 2022/12/30 18:44:14 by huaydin          ###   ########.fr       */
+/*   Updated: 2022/12/30 18:50:55 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	is_array_sorted(t_stacks *s)
 	return (1);
 }
 
-static void	radix_sort_b_array(t_stacks *s, int b_size, int bit_size, int j)
+static void	radix_sort_stack_b(t_stacks *s, int b_size, int bit_size, int j)
 {
 	while (b_size-- && j <= bit_size)
 	{
@@ -95,7 +95,7 @@ void	radix_sort(t_stacks *s)
 			else
 				rotate(s->a, s->a_size, "up", "a");
 		}
-		radix_sort_b_array(s, s->b_size, bit_size, j + 1);
+		radix_sort_stack_b(s, s->b_size, bit_size, j + 1);
 	}
 	while (s->b_size != 0)
 		push("pa", s);
