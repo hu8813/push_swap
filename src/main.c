@@ -6,7 +6,7 @@
 /*   By: huaydin <huaydin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 13:25:12 by huaydin           #+#    #+#             */
-/*   Updated: 2022/12/30 08:39:24 by huaydin          ###   ########.fr       */
+/*   Updated: 2022/12/30 17:27:50 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	main(int argc, char **argv)
 		exit(1);
 	initialize_stacks(argc, argv, s);
 	parse_numbers(argc, argv, s);
-	exit_if_sorted_or_has_duplicate(s);
+	exit_if_sorted_or_has_duplicate(s, 0);
 	new_a = malloc(s->a_size * sizeof * new_a);
 	if (new_a == NULL)
 		free_and_exit_with_message(s, "Error\n");
@@ -73,7 +73,7 @@ int	main(int argc, char **argv)
 		sort_four_to_five(s);
 	else
 		sort_using_radix_sort(s);
-	exit_if_sorted_or_has_duplicate(s);
+	exit_if_sorted_or_has_duplicate(s, 1);
 	free_and_exit_with_message(s, "Error\n");
 	return (0);
 }
