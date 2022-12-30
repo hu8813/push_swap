@@ -6,7 +6,7 @@
 /*   By: huaydin <huaydin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 13:25:12 by huaydin           #+#    #+#             */
-/*   Updated: 2022/12/29 23:42:51 by huaydin          ###   ########.fr       */
+/*   Updated: 2022/12/30 08:39:24 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ static void	validate_arguments(int argc, char **argv)
 int	main(int argc, char **argv)
 {
 	t_stacks	*s;
+	long int	*new_a;
 
 	validate_arguments(argc, argv);
 	s = malloc(sizeof * s);
@@ -60,7 +61,10 @@ int	main(int argc, char **argv)
 	initialize_stacks(argc, argv, s);
 	parse_numbers(argc, argv, s);
 	exit_if_sorted_or_has_duplicate(s);
-	create_index(s);
+	new_a = malloc(s->a_size * sizeof * new_a);
+	if (new_a == NULL)
+		free_and_exit_with_message(s, "Error\n");
+	create_index(s, new_a);
 	if (s->a_size == 2 && s->a[0] > s->a[1])
 		swap("sa", s->a, s->a_size);
 	else if (s->a_size == 3)

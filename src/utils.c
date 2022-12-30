@@ -6,7 +6,7 @@
 /*   By: huaydin <huaydin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 13:25:30 by huaydin           #+#    #+#             */
-/*   Updated: 2022/12/29 23:34:00 by huaydin          ###   ########.fr       */
+/*   Updated: 2022/12/30 08:39:59 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,33 +79,33 @@ void	initialize_stacks(int argc, char **argv, t_stacks *s)
 	s->b = malloc(s->a_size * sizeof * s->b);
 }
 
-void	create_index(t_stacks *s)
+void	create_index(t_stacks *s, long int *new_a)
 {
-	int	*new_a;
-	int	i;
-	int	j;
-	int	k;
-	int	min;
+	int			i;
+	int			j;
+	int			k;
+	long int	min;
 
-	new_a = malloc(s->a_size * sizeof * new_a);
+	i = s->a_size;
+	while (i--)
+		new_a[i] = s->a[i];
 	i = 0;
 	while (i < s->a_size)
 	{
 		j = 0;
-		min = __INT_MAX__;
+		min = 2147483648;
 		while (j < s->a_size)
 		{
-			if (min == -1 || s->a[j++] < min)
+			if (new_a[j++] < min)
 			{
-				min = s->a[j - 1];
+				min = new_a[j - 1];
 				k = j - 1;
 			}
 		}
-		s->a[k] = __INT_MAX__;
-		new_a[k] = i++;
+		new_a[k] = 2147483648;
+		s->a[k] = i++;
 	}
-	free(s->a);
-	s->a = new_a;
+	free(new_a);
 }
 
 int	ft_atol(const char *nptr)
