@@ -6,7 +6,7 @@
 /*   By: huaydin <huaydin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 15:36:39 by huaydin           #+#    #+#             */
-/*   Updated: 2022/12/30 18:50:55 by huaydin          ###   ########.fr       */
+/*   Updated: 2022/12/30 18:53:02 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	radix_sort(t_stacks *s)
 	while (++j <= bit_size)
 	{
 		size = s->a_size;
-		while (size-- && is_array_sorted(s) == 0)
+		while (size-- && !is_array_sorted(s))
 		{
 			if (((s->a[0] >> j) & 1) == 0)
 				push("pb", s);
