@@ -6,13 +6,13 @@
 /*   By: huaydin <huaydin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 15:36:39 by huaydin           #+#    #+#             */
-/*   Updated: 2022/12/30 17:27:25 by huaydin          ###   ########.fr       */
+/*   Updated: 2022/12/30 18:44:14 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	sort_three(t_stacks *s)
+void	sort_three_elements(t_stacks *s)
 {
 	if (s->a[2] != 2)
 	{
@@ -25,7 +25,7 @@ void	sort_three(t_stacks *s)
 		swap("sa", s->a, s->a_size);
 }
 
-void	sort_four_to_five(t_stacks *s)
+void	sort_four_to_five_elements(t_stacks *s)
 {
 	while (s->b_size <= 1)
 	{
@@ -49,22 +49,32 @@ void	sort_four_to_five(t_stacks *s)
 	push("pa", s);
 }
 
-static void	sort_b(t_stacks *s, int b_size, int bit_size, int j)
+int	is_array_sorted(t_stacks *s)
 {
-	if (b_size == 0)
-		exit_if_sorted_or_has_duplicate(s, 1);
-	while (j <= bit_size && b_size-- > 0)
+	int	i;
+
+	i = 0;
+	while (i < s->a_size - 1)
+	{
+		if (s->a[i] > s->a[i + 1])
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+static void	radix_sort_b_array(t_stacks *s, int b_size, int bit_size, int j)
+{
+	while (b_size-- && j <= bit_size)
 	{
 		if (((s->b[0] >> j) & 1) == 0)
 			rotate(s->b, s->b_size, "up", "b");
 		else
 			push("pa", s);
 	}
-	if (s->b_size == 0)
-		exit_if_sorted_or_has_duplicate(s, 1);
 }
 
-void	sort_using_radix_sort(t_stacks *s)
+void	radix_sort(t_stacks *s)
 {
 	int	j;
 	int	bit_size;
@@ -78,14 +88,14 @@ void	sort_using_radix_sort(t_stacks *s)
 	while (++j <= bit_size)
 	{
 		size = s->a_size;
-		while (size--)
+		while (size-- && is_array_sorted(s) == 0)
 		{
 			if (((s->a[0] >> j) & 1) == 0)
 				push("pb", s);
 			else
 				rotate(s->a, s->a_size, "up", "a");
 		}
-		sort_b(s, s->b_size, bit_size, j);
+		radix_sort_b_array(s, s->b_size, bit_size, j + 1);
 	}
 	while (s->b_size != 0)
 		push("pa", s);

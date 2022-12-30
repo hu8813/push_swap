@@ -6,7 +6,7 @@
 /*   By: huaydin <huaydin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 13:25:12 by huaydin           #+#    #+#             */
-/*   Updated: 2022/12/30 17:27:50 by huaydin          ###   ########.fr       */
+/*   Updated: 2022/12/30 18:43:48 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,11 @@ int	main(int argc, char **argv)
 	if (s->a_size == 2 && s->a[0] > s->a[1])
 		swap("sa", s->a, s->a_size);
 	else if (s->a_size == 3)
-		sort_three(s);
+		sort_three_elements(s);
 	else if (s->a_size >= 4 && s->a_size <= 5)
-		sort_four_to_five(s);
+		sort_four_to_five_elements(s);
 	else
-		sort_using_radix_sort(s);
+		radix_sort(s);
 	exit_if_sorted_or_has_duplicate(s, 1);
 	free_and_exit_with_message(s, "Error\n");
 	return (0);

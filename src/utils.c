@@ -6,7 +6,7 @@
 /*   By: huaydin <huaydin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 13:25:30 by huaydin           #+#    #+#             */
-/*   Updated: 2022/12/30 17:26:53 by huaydin          ###   ########.fr       */
+/*   Updated: 2022/12/30 18:43:30 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,26 +18,20 @@ void	exit_if_sorted_or_has_duplicate(t_stacks *s, int i)
 
 	if (i == 0)
 	{
-	while (i < s->a_size)
-	{
-		j = i + 1;
-		while (j < s->a_size)
+		while (i < s->a_size)
 		{
-			if (s->a[i] == s->a[j])
-				free_and_exit_with_message(s, "Error\n");
-			j++;
+			j = i + 1;
+			while (j < s->a_size)
+			{
+				if (s->a[i] == s->a[j])
+					free_and_exit_with_message(s, "Error\n");
+				j++;
+			}
+			i++;
 		}
-		i++;
 	}
-	}
-	i = 0;
-	while (i < s->a_size - 1)
-	{
-		if (s->a[i] > s->a[i + 1])
-			return ;
-		i++;
-	}
-	free_and_exit_with_message(s, NULL);
+	if (is_array_sorted(s))
+		free_and_exit_with_message(s, NULL);
 }
 
 void	parse_numbers(int argc, char **argv, t_stacks *s)
