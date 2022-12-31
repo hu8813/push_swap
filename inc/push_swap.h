@@ -6,7 +6,7 @@
 /*   By: huaydin <huaydin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 13:25:59 by huaydin           #+#    #+#             */
-/*   Updated: 2022/12/30 18:51:05 by huaydin          ###   ########.fr       */
+/*   Updated: 2022/12/31 04:10:47 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "../libft/libft.h"
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdio.h>
 
 typedef struct s_stacks
 {

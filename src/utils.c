@@ -6,7 +6,7 @@
 /*   By: huaydin <huaydin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 13:25:30 by huaydin           #+#    #+#             */
-/*   Updated: 2022/12/30 22:30:32 by huaydin          ###   ########.fr       */
+/*   Updated: 2022/12/31 05:05:40 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,23 +38,25 @@ void	parse_numbers(int argc, char **argv, t_stacks *s)
 {
 	char	**tmp;
 	int		i;
-	int		j;
 	int		z;
 
 	z = 0;
 	while (argc-- > 1)
 	{
-		j = ft_count_words(argv[z + 1], ' ');
-		if (j == 1)
+		if (argv[z + 1][0] == '\0')
+			free_and_exit_with_message(s, "Error\n");
+		if (ft_count_words(argv[z + 1], ' ') == 1)
 			s->a[z] = ft_atol(argv[z + 1]);
-		else if (j > 1)
+		else if (ft_count_words(argv[z + 1], ' ') > 1)
 		{
 			tmp = ft_split(argv[z + 1], ' ');
 			i = 0;
-			while (j--)
+			while (tmp[i])
 				s->a[z++] = ft_atol(tmp[i++]);
+			i = 0;
 			while (tmp[i])
 				free(tmp[i++]);
+			free(tmp);
 			z--;
 		}
 		z++;
@@ -69,7 +71,13 @@ void	initialize_stacks(int argc, char **argv, t_stacks *s)
 	s->a_size = 0;
 	s->b_size = 0;
 	while (--argc)
-		s->a_size += ft_count_words(argv[i++], ' ');
+	{
+		if (ft_count_words(argv[i + 1], ' '))
+			s->a_size += ft_count_words(argv[i + 1], ' ');
+		else
+			s->a_size++;
+		i++;
+	}
 	s->a = malloc(s->a_size * sizeof * s->a);
 	s->b = malloc(s->a_size * sizeof * s->b);
 }
@@ -122,7 +130,7 @@ int	ft_atol(const char *nptr)
 	}
 	while (ft_isdigit(nptr[i]))
 		res = res * 10 + (nptr[i++] - '0');
-	if (nptr[i] != 0 && !ft_isdigit(nptr[i]) && nptr[i] != ' ')
+	if (!ft_isdigit(nptr[0]) && nptr[i] != ' ' && nptr[i] != 0)
 		free_and_exit_with_message(NULL, "Error\n");
 	if ((res * sign) < -2147483648 || (res * sign) > 2147483647)
 		free_and_exit_with_message(NULL, "Error\n");
