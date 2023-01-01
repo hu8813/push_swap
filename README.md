@@ -1,7 +1,43 @@
 
-# Push_swap
+# Push_swap using Radix sort
 
 Push_swap is a project that involves sorting a list of integers using a limited set of operations. The goal is to sort the list with the fewest possible number of operations.
+
+## Sorting results and points
+
+
+<table>
+  <tr>
+    <th>Input Size</th>
+    <th>Minimum Operations</th>
+    <th>Maximum Operations</th>
+    <th>Points</th>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>1</td>
+    <td>2</td>
+    <td></td>
+  </tr>
+    <tr>
+    <td>5</td>
+    <td>5</td>
+    <td>10</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>100</td>
+    <td>855</td>
+    <td>857</td>
+    <td>4/5</td>
+  </tr>
+  <tr>
+    <td>500</td>
+    <td>5739</td>
+    <td>5741</td>
+    <td>4/5</td>
+  </tr>
+</table>
 
 ## Usage
 
