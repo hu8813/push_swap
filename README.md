@@ -31,6 +31,12 @@ Edit the NBR_COUNT variable in visualizer.sh file to change the numbers to sort,
 
 GitHub Page of this Visualizer: [https://github.com/Bluegales/push-swap-pain](https://github.com/Bluegales/push-swap-pain)
 
+OR
+
+There is another, a better visualizer in python, but this needs tkinter library, which can not be installed on school pc as it needs root.
+
+If you want to test on private pc, you can install the push-swap-gui python program from [https://pypi.org/project/push-swap-gui/](https://pypi.org/project/push-swap-gui/). This program allows you to see the sorting process of the Push_swap project in a graphical interface, making it easier to understand how the algorithms work. Simply follow the instructions on the website to install and run the program. If you get tkinter error, means you need to install tkinter via `sudo apt install python3-tk`
+
 ## Resources
 
 Useful resources for understanding and implementing sorting algorithms for the Push_swap project:
