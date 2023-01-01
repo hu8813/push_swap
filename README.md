@@ -25,8 +25,9 @@ Optionally, you can use the `checker` program to verify that the list is correct
 
 ## Visualize the results
 
-Run `bash visualizer.sh` to get an online link that shows the visualization
-edit the NBR_COUNT variable in visualizer.sh file to change the numbers to sort, i.e. NBR_COUNT=100 to sort 100 numbers and visualize it
+Run `bash visualizer.sh` to get an online link that shows the visualization.
+
+Edit the NBR_COUNT variable in visualizer.sh file to change the numbers to sort, i.e. NBR_COUNT=100 to sort 100 numbers and visualize it
 
 GitHub Page of this Visualizer: [https://github.com/Bluegales/push-swap-pain](https://github.com/Bluegales/push-swap-pain)
 
