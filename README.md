@@ -26,6 +26,7 @@ Optionally, you can use the `checker` program to verify that the list is correct
 ## Visualize the results
 
 Run `bash visualizer.sh` to get a link that shows the visualization
+edit the file to change the numbers to sort, i.e. NBR_COUNT=100 to sort 100 numbers and visualize it
 
 ## Resources
 
