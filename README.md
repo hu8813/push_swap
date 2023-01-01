@@ -25,7 +25,7 @@ Optionally, you can use the `checker` program to verify that the list is correct
 
 ## Visualize the results
 
-To visualize the Push_swap project, you can install the push-swap-gui python program from [https://pypi.org/project/push-swap-gui/](https://pypi.org/project/push-swap-gui/). This program allows you to see the sorting process of the Push_swap project in a graphical interface, making it easier to understand how the algorithms work. Simply follow the instructions on the website to install and run the program.
+Run `bash visualizer.sh` to get a link that shows the visualization
 
 ## Resources
 
