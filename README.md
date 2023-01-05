@@ -66,7 +66,7 @@ Optionally, you can use the `checker` program to verify that the list is correct
 
 ## Test and see how many points you can get
 
-run: perl size_of_stack how_many_tests  
+run: perl push_swap_tester.pl size_of_stack how_many_tests  
 
 i.e. `perl push_swap_tester.pl 100 10` 
 
