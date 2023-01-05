@@ -24,7 +24,7 @@ Push_swap is a project that involves sorting a list of integers using a limited 
     <tr>
     <td>5</td>
     <td>5-10</td>
-    <td>11</td>
+    <td>12</td>
     <td></td>
     <td></td>
   </tr>
