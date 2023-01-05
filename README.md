@@ -54,7 +54,7 @@ If you get any error, try to run it in bash instead zsh
 
 to test with some random numbers:
 
-`make test` 
+`make test`  (will test with 10 numbers as default)
 
 to test with n random numbers:
 
