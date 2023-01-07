@@ -33,8 +33,6 @@ static void	validate_arguments(int argc, char **argv)
 	int	i;
 	int	j;
 
-	if (argc < 2)
-		exit(0);
 	i = 0;
 	while (++i < argc)
 	{
