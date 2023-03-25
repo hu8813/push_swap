@@ -96,6 +96,7 @@ void	radix_sort(t_stacks *s)
 				rotate(s->a, s->a_size, "up", "a");
 		}
 		radix_sort_stack_b(s, s->b_size, bit_size, j + 1);
+	
 	}
 	while (s->b_size != 0)
 		push("pa", s);

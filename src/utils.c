@@ -41,7 +41,7 @@ void	parse_numbers(int argc, char **argv, t_stacks *s)
 	int		z;
 
 	z = 0;
-	while (argc-- > 1)
+	while (argc-- > 1 && argv[z + 1] != NULL)
 	{
 		if (argv[z + 1][0] == '\0')
 			free_and_exit_with_message(s, "Error\n");
