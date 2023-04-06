@@ -38,6 +38,6 @@ void		initialize_stacks(int argc, char **argv, t_stacks *s);
 void		free_and_exit_with_message(t_stacks *s, char *msg);
 void		exit_if_sorted_or_has_duplicate(t_stacks *s, int i);
 int			is_array_sorted(t_stacks *s);
-int			ft_atol(const char *nptr);
+int			ft_atol(const char *nptr, t_stacks *s);
 
 #endif

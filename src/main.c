@@ -39,8 +39,12 @@ static void	validate_arguments(int argc, char **argv)
 		j = 0;
 		while (argv[i][j] != '\0')
 		{
-			if (!(ft_isdigit(argv[i][j])) && (argv[i][j] != ' ') &&
-			(argv[i][j] != '-' && argv[i][j] != '+'))
+			if ((!(ft_isdigit(argv[i][j])) && (argv[i][j] != ' ')
+			&& (argv[i][j] != '-' && argv[i][j] != '+'))
+			|| (argv[i][j] == '-' && argv[i][j + 1] == '\0')
+			|| (argv[i][j] == '+' && argv[i][j + 1] == '\0')
+			|| (argv[i][j] == '-' && argv[i][j + 1] == ' ')
+			|| (argv[i][j] == '+' && argv[i][j + 1] == ' '))
 				free_and_exit_with_message(NULL, "Error\n");
 			j++;
 		}

@@ -46,13 +46,13 @@ void	parse_numbers(int argc, char **argv, t_stacks *s)
 		if (argv[z + 1][0] == '\0')
 			free_and_exit_with_message(s, "Error\n");
 		if (ft_count_words(argv[z + 1], ' ') == 1)
-			s->a[z] = ft_atol(argv[z + 1]);
+			s->a[z] = ft_atol(argv[z + 1], s);
 		else if (ft_count_words(argv[z + 1], ' ') > 1)
 		{
 			tmp = ft_split(argv[z + 1], ' ');
 			i = 0;
 			while (tmp[i])
-				s->a[z++] = ft_atol(tmp[i++]);
+				s->a[z++] = ft_atol(tmp[i++], s);
 			i = 0;
 			while (tmp[i])
 				free(tmp[i++]);
@@ -115,7 +115,7 @@ void	create_index(t_stacks *s, long int *new_a)
 	free(new_a);
 }
 
-int	ft_atol(const char *nptr)
+int	ft_atol(const char *nptr, t_stacks *s)
 {
 	int			i;
 	long		sign;
@@ -126,17 +126,19 @@ int	ft_atol(const char *nptr)
 	i = 0;
 	while (nptr[i] == ' ' || (nptr[i] >= '\t' && nptr[i] <= '\r'))
 		i++;
-	if (nptr[i] == '+' || nptr[i] == '-')
+	if ((nptr[i] == '+' || nptr[i] == '-'))
 	{
 		if (nptr[i] == '-')
 			sign = -1;
-		i++;
+	i++;
 	}
-	while (ft_isdigit(nptr[i]))
+	while (nptr[i])
+	{
+		if (res > 2147483647 || (res * sign) < -2147483648)
+			free_and_exit_with_message(s, "Error\n");
+		if (!(nptr[i] >= '0' && nptr[i] <= '9'))
+			free_and_exit_with_message(s, "Error\n");
 		res = res * 10 + (nptr[i++] - '0');
-	if (!ft_isdigit(nptr[0]) && nptr[i] != ' ' && nptr[i] != 0)
-		free_and_exit_with_message(NULL, "Error\n");
-	if ((res * sign) < -2147483648 || (res * sign) > 2147483647)
-		free_and_exit_with_message(NULL, "Error\n");
+	}
 	return ((int)(res * sign));
 }
