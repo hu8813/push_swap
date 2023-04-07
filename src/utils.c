@@ -16,6 +16,7 @@ void	exit_if_sorted_or_has_duplicate(t_stacks *s, int i)
 {
 	int	j;
 
+	j = 0;
 	if (i == 0)
 	{
 		while (i < s->a_size)
@@ -34,33 +35,21 @@ void	exit_if_sorted_or_has_duplicate(t_stacks *s, int i)
 		free_and_exit_with_message(s, NULL);
 }
 
-void	parse_numbers(int argc, char **argv, t_stacks *s)
+void	parse_numbers(t_stacks *s)
 {
 	char	**tmp;
 	int		i;
 	int		z;
 
 	z = 0;
-	while (argc-- > 1 && argv[z + 1] != NULL)
+	tmp = ft_split(s->join_args, ' ');
+	i = 0;
+	while (tmp[i] != NULL && tmp[i][0] != '\0')
 	{
-		if (argv[z + 1][0] == '\0')
-			free_and_exit_with_message(s, "Error\n");
-		if (ft_count_words(argv[z + 1], ' ') == 1)
-			s->a[z] = ft_atol(argv[z + 1], s);
-		else if (ft_count_words(argv[z + 1], ' ') > 1)
-		{
-			tmp = ft_split(argv[z + 1], ' ');
-			i = 0;
-			while (tmp[i])
-				s->a[z++] = ft_atol(tmp[i++], s);
-			i = 0;
-			while (tmp[i])
-				free(tmp[i++]);
-			free(tmp);
-			z--;
-		}
-		z++;
+		s->a[z++] = ft_atol(tmp[i++], s);
+		free(tmp[i - 1]);
 	}
+	free(tmp);
 }
 
 void	initialize_stacks(int argc, char **argv, t_stacks *s)

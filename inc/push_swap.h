@@ -24,6 +24,7 @@ typedef struct s_stacks
 	int		*b;
 	int		a_size;
 	int		b_size;
+	char	*join_args;
 }			t_stacks;
 
 void		rotate(int *array, int size, char *direction, char *list);
@@ -32,7 +33,7 @@ void		push(char *str, t_stacks *s);
 void		sort_three_elements(t_stacks *s);
 void		sort_four_to_five_elements(t_stacks *s);
 void		radix_sort(t_stacks *s);
-void		parse_numbers(int argc, char **argv, t_stacks *s);
+void		parse_numbers(t_stacks *s);
 void		create_index(t_stacks *s, long int *new_a);
 void		initialize_stacks(int argc, char **argv, t_stacks *s);
 void		free_and_exit_with_message(t_stacks *s, char *msg);

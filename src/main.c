@@ -22,6 +22,8 @@ void	free_and_exit_with_message(t_stacks *s, char *msg)
 			free(s->a);
 		if (s->b != NULL)
 			free(s->b);
+		if (s->join_args != NULL)
+			free(s->join_args);
 		if (s != NULL)
 			free(s);
 	}
@@ -40,7 +42,7 @@ static void	validate_arguments(int argc, char **argv)
 		while (argv[i][j] != '\0')
 		{
 			if ((!(ft_isdigit(argv[i][j])) && (argv[i][j] != ' ')
-			&& (argv[i][j] != '-' && argv[i][j] != '+'))
+			&& (argv[i][j] != '-' && argv[i][j] != '+' && argv[i][j] != ' '))
 			|| (argv[i][j] == '-' && argv[i][j + 1] == '\0')
 			|| (argv[i][j] == '+' && argv[i][j + 1] == '\0')
 			|| (argv[i][j] == '-' && argv[i][j + 1] == ' ')
@@ -49,6 +51,34 @@ static void	validate_arguments(int argc, char **argv)
 			j++;
 		}
 	}
+}
+
+static void	join_args(int argc, char **argv, t_stacks *s)
+{
+	char	*tmp;
+	char	*tmp2;
+	int		i;
+
+	i = 0;
+	tmp2 = ft_strdup("");
+	while (++i < argc && argv[i] != NULL)
+	{
+		tmp = ft_strjoin(tmp2, argv[i]);
+		free(tmp2);
+		if (i != argc - 1)
+		{
+			tmp2 = ft_strjoin(tmp, " ");
+			free(tmp);
+			tmp = tmp2;
+		}
+	}
+	s->join_args = malloc(ft_strlen(tmp) + 1);
+	i = -1;
+	while (tmp[++i] != '\0')
+		s->join_args[i] = tmp[i];
+	s->join_args[i] = '\0';
+	free(tmp);
+	parse_numbers(s);
 }
 
 int	main(int argc, char **argv)
@@ -61,7 +91,7 @@ int	main(int argc, char **argv)
 	if (s == NULL)
 		exit(1);
 	initialize_stacks(argc, argv, s);
-	parse_numbers(argc, argv, s);
+	join_and_parse_args(argc, argv, s);
 	exit_if_sorted_or_has_duplicate(s, 0);
 	new_a = malloc(s->a_size * sizeof * new_a);
 	if (new_a == NULL)
