@@ -6,7 +6,7 @@
 /*   By: huaydin <huaydin@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 13:25:12 by huaydin           #+#    #+#             */
-/*   Updated: 2023/04/09 16:16:23 by huaydin          ###   ########.fr       */
+/*   Updated: 2023/04/09 16:25:51 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,6 @@ static void	join_and_parse_args(int argc, char **argv, t_stacks *s)
 int	main(int argc, char **argv)
 {
 	t_stacks	*s;
-	long int	*new_a;
 
 	validate_arguments(argc, argv);
 	s = malloc(sizeof * s);
@@ -95,10 +94,7 @@ int	main(int argc, char **argv)
 	initialize_stacks(argc, argv, s);
 	join_and_parse_args(argc, argv, s);
 	exit_if_sorted_or_has_duplicate(s, 0);
-	new_a = malloc(s->a_size * sizeof * new_a);
-	if (new_a == NULL)
-		free_and_exit_with_message(s, "Error\n");
-	create_index(s, new_a);
+	create_index(s);
 	if (s->a_size == 2 && s->a[0] > s->a[1])
 		swap("sa", s->a, s->a_size);
 	else if (s->a_size == 3)

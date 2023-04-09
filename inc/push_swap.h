@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: huaydin <huaydin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: huaydin <huaydin@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 13:25:59 by huaydin           #+#    #+#             */
-/*   Updated: 2022/12/31 04:10:47 by huaydin          ###   ########.fr       */
+/*   Updated: 2023/04/09 16:26:23 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void		sort_three_elements(t_stacks *s);
 void		sort_four_to_five_elements(t_stacks *s);
 void		radix_sort(t_stacks *s);
 void		parse_numbers(t_stacks *s);
-void		create_index(t_stacks *s, long int *new_a);
+void		create_index(t_stacks *s);
 void		initialize_stacks(int argc, char **argv, t_stacks *s);
 void		free_and_exit_with_message(t_stacks *s, char *msg);
 void		exit_if_sorted_or_has_duplicate(t_stacks *s, int i);

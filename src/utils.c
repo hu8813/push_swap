@@ -6,7 +6,7 @@
 /*   By: huaydin <huaydin@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 13:25:30 by huaydin           #+#    #+#             */
-/*   Updated: 2023/04/09 16:13:22 by huaydin          ###   ########.fr       */
+/*   Updated: 2023/04/09 16:26:17 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,12 +75,16 @@ void	initialize_stacks(int argc, char **argv, t_stacks *s)
 		free_and_exit_with_message(s, "Error\n");
 }
 
-void	create_index(t_stacks *s, long int *new_a)
+void	create_index(t_stacks *s)
 {
-	int			i;
-	int			j;
-	int			k;
+	int		i;
+	int		j;
+	int		k;
+	int		*new_a;
 
+	new_a = malloc(s->a_size * sizeof * new_a);
+	if (new_a == NULL)
+		free_and_exit_with_message(s, "Error\n");
 	i = -1;
 	while (++i < s->a_size)
 	{
