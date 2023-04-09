@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: huaydin <huaydin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: huaydin <huaydin@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 13:25:12 by huaydin           #+#    #+#             */
-/*   Updated: 2022/12/30 23:40:32 by huaydin          ###   ########.fr       */
+/*   Updated: 2023/04/09 16:16:23 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ static void	validate_arguments(int argc, char **argv)
 	int	j;
 
 	i = 0;
+	if (argc < 2)
+		free_and_exit_with_message(NULL, "");
 	while (++i < argc)
 	{
 		j = 0;
@@ -53,7 +55,7 @@ static void	validate_arguments(int argc, char **argv)
 	}
 }
 
-static void	join_args(int argc, char **argv, t_stacks *s)
+static void	join_and_parse_args(int argc, char **argv, t_stacks *s)
 {
 	char	*tmp;
 	char	*tmp2;

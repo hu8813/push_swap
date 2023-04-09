@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: huaydin <huaydin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: huaydin <huaydin@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 13:25:30 by huaydin           #+#    #+#             */
-/*   Updated: 2022/12/31 05:20:00 by huaydin          ###   ########.fr       */
+/*   Updated: 2023/04/09 16:13:22 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,27 +80,20 @@ void	create_index(t_stacks *s, long int *new_a)
 	int			i;
 	int			j;
 	int			k;
-	long int	min;
 
+	i = -1;
+	while (++i < s->a_size)
+	{
+		k = 0;
+		j = -1;
+		while (++j < s->a_size)
+			if (s->a[i] > s->a[j])
+				k++;
+		new_a[i] = k;
+	}
 	i = s->a_size;
 	while (i--)
-		new_a[i] = s->a[i];
-	i = 0;
-	while (i < s->a_size)
-	{
-		j = 0;
-		min = 2147483648;
-		while (j < s->a_size)
-		{
-			if (new_a[j++] < min)
-			{
-				min = new_a[j - 1];
-				k = j - 1;
-			}
-		}
-		new_a[k] = 2147483648;
-		s->a[k] = i++;
-	}
+		s->a[i] = new_a[i];
 	free(new_a);
 }
 
