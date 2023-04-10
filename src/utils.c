@@ -116,7 +116,7 @@ int	ft_atol(const char *nptr, t_stacks *s)
 	{
 		if (nptr[i] == '-')
 			sign = -1;
-	i++;
+		i++;
 	}
 	while (nptr[i])
 	{
