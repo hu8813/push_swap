@@ -75,6 +75,8 @@ static void	join_and_parse_args(int argc, char **argv, t_stacks *s)
 		}
 	}
 	s->join_args = malloc(ft_strlen(tmp) + 1);
+	if (s->join_args == NULL)
+		free_and_exit_with_message(s, "Error\n");
 	i = -1;
 	while (tmp[++i] != '\0')
 		s->join_args[i] = tmp[i];
