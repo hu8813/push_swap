@@ -46,13 +46,8 @@ void	parse_numbers(t_stacks *s)
 	while (s->tmp[i] != NULL && s->tmp[i][0] != '\0')
 	{
 		s->a[z++] = ft_atol(s->tmp[i], s);
-		free(s->tmp[i]);
 		i++;
 	}
-	z = 0;
-	while (s->tmp[z] != NULL)
-		free(s->tmp[z++]);
-	free(s->tmp);
 }
 
 void	initialize_stacks(int argc, char **argv, t_stacks *s)
