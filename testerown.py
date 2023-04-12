@@ -2,7 +2,7 @@
 import subprocess
 import re
 
-color = "\033[1;31m"
+yellow = "\033[1;33m"
 green = "\033[1;32m"
 red = "\033[1;31m"
 reset = "\033[0;0m"
@@ -10,19 +10,43 @@ reset = "\033[0;0m"
 
 def testcase(nbrs):
     result = subprocess.run(["valgrind", "--leak-check=full", "./push_swap", nbrs], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    print("Numbers:", nbrs)
+    print(f"{yellow}[Numbers]:{reset} {nbrs.ljust(40)}", end="")
     output = result.stderr.decode()
-    print(output)
     memory_usage = re.search(r"in use at exit: (\d+) bytes in", output)
+    memory_errors = re.search(r"ERROR SUMMARY: (\d+) errors", output)
     if memory_usage:
         num_inuse = int(memory_usage.group(1))
+    if memory_errors:
+        num_memerr = int(memory_errors.group(1))
     exists_error = re.search(r"Error\n", output)
-    if exists_error:
-        print(f"{green}OK{reset}", end=" ")
-    if num_inuse:
-        print(f"{red}MKO{reset} {num_inuse} bytes still reachable!", end="")
-    print()
+    result2 = subprocess.run(f"./push_swap {nbrs} | ./checker_linux {nbrs}", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
+    output2 = result2.stdout + result2.stderr
+    res2 = ""
+    if re.search(r"OK", output2):
+        res2=f"{green}OK{reset}"
+    if re.search(r"KO", output2):
+        res2=f"{red}KO{reset}"
+    is_error = re.search(r"Error", output2)
     
+    if num_inuse:
+        print(f"{red}MKO{reset} {num_inuse} bytes still reachable!".ljust(40), end="")
+    elif num_memerr:
+        print(f"{red}MKO{reset} {num_memerr} memory errors!".ljust(40), end="")
+    else:
+        print(f"Memory: {green}OK{reset}".ljust(40), end="")
+    if exists_error:
+        print(f"Error handling: {green}OK{reset}".ljust(30), end="")
+    if not is_error and not exists_error:
+        print(f"Sorting: {res2}".ljust(15), end="")
+    
+    print("\n")
+
+
+testcase("")
+testcase(" ")
+testcase("-")
+testcase("+")
+testcase("a 3 2")
 testcase("4 4 6")
 testcase("6 4 4")
 testcase("4 6 4")
