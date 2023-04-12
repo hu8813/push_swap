@@ -37,19 +37,22 @@ void	exit_if_sorted_or_has_duplicate(t_stacks *s, int i)
 
 void	parse_numbers(t_stacks *s)
 {
-	char	**tmp;
 	int		i;
 	int		z;
 
 	z = 0;
-	tmp = ft_split(s->join_args, ' ');
+	s->tmp = ft_split(s->join_args, ' ');
 	i = 0;
-	while (tmp[i] != NULL && tmp[i][0] != '\0')
+	while (s->tmp[i] != NULL && s->tmp[i][0] != '\0')
 	{
-		s->a[z++] = ft_atol(tmp[i++], s);
-		free(tmp[i - 1]);
+		s->a[z++] = ft_atol(s->tmp[i], s);
+		free(s->tmp[i]);
+		i++;
 	}
-	free(tmp);
+	z = 0;
+	while (s->tmp[z] != NULL)
+		free(s->tmp[z++]);
+	free(s->tmp);
 }
 
 void	initialize_stacks(int argc, char **argv, t_stacks *s)

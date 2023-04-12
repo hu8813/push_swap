@@ -22,6 +22,7 @@ typedef struct s_stacks
 {
 	int		*a;
 	int		*b;
+	char	**tmp;
 	int		a_size;
 	int		b_size;
 	char	*join_args;
