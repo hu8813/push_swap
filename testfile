@@ -1,0 +1,15 @@
+==180876== Memcheck, a memory error detector
+==180876== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==180876== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==180876== Command: ./push_swap 464 892 779 837 474 997\ 136\ 101\ 474\ 906
+==180876== Parent PID: 180875
+==180876== 
+==180876== 
+==180876== HEAP SUMMARY:
+==180876==     in use at exit: 0 bytes in 0 blocks
+==180876==   total heap usage: 27 allocs, 27 frees, 454 bytes allocated
+==180876== 
+==180876== All heap blocks were freed -- no leaks are possible
+==180876== 
+==180876== For lists of detected and suppressed errors, rerun with: -s
+==180876== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

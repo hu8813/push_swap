@@ -118,11 +118,11 @@ int	ft_atol(const char *nptr, t_stacks *s)
 	}
 	while (nptr[i])
 	{
+		res = res * 10 + (nptr[i++] - '0');
 		if (res > 2147483647 || (res * sign) < -2147483648)
 			free_and_exit_with_message(s, "Error\n");
 		if (!(nptr[i] >= '0' && nptr[i] <= '9'))
 			free_and_exit_with_message(s, "Error\n");
-		res = res * 10 + (nptr[i++] - '0');
 	}
 	return ((int)(res * sign));
 }
