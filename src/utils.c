@@ -37,17 +37,19 @@ void	exit_if_sorted_or_has_duplicate(t_stacks *s, int i)
 
 void	parse_numbers(t_stacks *s)
 {
+	char	**tmp;
 	int		i;
 	int		z;
 
 	z = 0;
-	s->tmp = ft_split(s->join_args, ' ');
+	tmp = ft_split(s->join_args, ' ');
 	i = 0;
-	while (s->tmp[i] != NULL && s->tmp[i][0] != '\0')
+	while (tmp[i] != NULL && tmp[i][0] != '\0')
 	{
-		s->a[z++] = ft_atol(s->tmp[i], s);
-		i++;
+		s->a[z++] = ft_atol(tmp[i++], s);
+		free(tmp[i - 1]);
 	}
+	free(tmp);
 }
 
 void	initialize_stacks(int argc, char **argv, t_stacks *s)
@@ -118,11 +120,11 @@ int	ft_atol(const char *nptr, t_stacks *s)
 	}
 	while (nptr[i])
 	{
-		res = res * 10 + (nptr[i++] - '0');
 		if (res > 2147483647 || (res * sign) < -2147483648)
 			free_and_exit_with_message(s, "Error\n");
 		if (!(nptr[i] >= '0' && nptr[i] <= '9'))
 			free_and_exit_with_message(s, "Error\n");
+		res = res * 10 + (nptr[i++] - '0');
 	}
 	return ((int)(res * sign));
 }

@@ -14,9 +14,6 @@
 
 void	free_and_exit_with_message(t_stacks *s, char *msg)
 {
-	int	i;
-
-	i = 0;
 	if (msg)
 		write(2, msg, ft_strlen(msg));
 	if (s != NULL)
@@ -25,12 +22,6 @@ void	free_and_exit_with_message(t_stacks *s, char *msg)
 			free(s->a);
 		if (s->b != NULL)
 			free(s->b);
-		if (s->tmp != NULL)
-		{
-			while (s->tmp[i] != NULL)
-				free(s->tmp[i++]);
-			free(s->tmp);
-		}
 		if (s->join_args != NULL)
 			free(s->join_args);
 		if (s != NULL)
