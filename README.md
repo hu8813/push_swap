@@ -46,13 +46,11 @@ Push_swap is a project that involves sorting a list of integers using a limited 
 
 ## Usage
 
-To use the push_swap program, compile it with the `make` command and then run it with the list of integers to be sorted as arguments. For example:
+To use the push_swap program, compile it with the `make` command and then run it with the list of integers to be sorted as arguments. i.e.:
 
 `./push_swap 3 1 2` 
 
-If you get any error, try to run it in bash instead zsh
-
-to test with some random numbers:
+To test with some random numbers:
 
 `make test`  (will test with 10 numbers as default)
 
