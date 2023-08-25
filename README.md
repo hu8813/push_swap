@@ -64,6 +64,10 @@ Optionally, you can use the `checker` program to verify that the list is correct
 
 ## Test and see how many points you can get
 
+For testing for error handling and finding memory leaks, use my tester here:
+
+Link to the tester's repository: (https://github.com/hu8813/tester_push_swap)
+
 run: perl push_swap_tester.pl size_of_stack how_many_tests  
 
 i.e. `perl push_swap_tester.pl 100 10` 
