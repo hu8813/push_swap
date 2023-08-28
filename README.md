@@ -5,7 +5,7 @@ Push_swap is a project that involves sorting a list of integers using a limited 
 
 # Update
 
-Do not forget to check for leaks if a number is bigger/smaller than max/min long int or long long int! 
+Do not forget to check for error handling & leaks if a number is bigger/smaller than max/min long int or long long int (overflow) ! 
 
 ## Sorting results and points
 
