@@ -3,6 +3,10 @@
 
 Push_swap is a project that involves sorting a list of integers using a limited set of operations. The goal is to sort the list with the fewest possible number of operations.
 
+# Update
+
+Do not forget to check for leaks if a number is bigger/smaller than max/min long int or long long int! 
+
 ## Sorting results and points
 
 
