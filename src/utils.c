@@ -6,7 +6,7 @@
 /*   By: huaydin <huaydin@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 13:25:30 by huaydin           #+#    #+#             */
-/*   Updated: 2023/04/09 16:26:17 by huaydin          ###   ########.fr       */
+/*   Updated: 2023/08/30 19:19:52 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ void	create_index(t_stacks *s)
 	free(new_a);
 }
 
-int	ft_atol(const char *nptr, t_stacks *s)
+int	ft_atol(const char *n, t_stacks *s)
 {
 	int			i;
 	long		sign;
@@ -110,21 +110,21 @@ int	ft_atol(const char *nptr, t_stacks *s)
 	res = 0;
 	sign = 1;
 	i = 0;
-	while (nptr[i] == ' ' || (nptr[i] >= '\t' && nptr[i] <= '\r'))
+	while (n[i] == ' ' || (n[i] >= '\t' && n[i] <= '\r'))
 		i++;
-	if ((nptr[i] == '+' || nptr[i] == '-'))
+	if ((n[i] == '+' || n[i] == '-'))
 	{
-		if (nptr[i] == '-')
+		if (n[i] == '-')
 			sign = -1;
 		i++;
 	}
-	while (nptr[i])
+	while (n[i])
 	{
-		if (res > 2147483647 || (res * sign) < -2147483648)
+		if (res > 2147483647 || (res * sign) < -2147483648 || ft_strlen(n) > 11)
 			free_and_exit_with_message(s, "Error\n");
-		if (!(nptr[i] >= '0' && nptr[i] <= '9'))
+		if (!(n[i] >= '0' && n[i] <= '9'))
 			free_and_exit_with_message(s, "Error\n");
-		res = res * 10 + (nptr[i++] - '0');
+		res = res * 10 + (n[i++] - '0');
 	}
 	return ((int)(res * sign));
 }

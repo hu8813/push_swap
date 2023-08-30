@@ -4,10 +4,12 @@ import re
 import os
 import platform
 import random
+import tempfile
 
+testnbr=0
 # Get the current operating system
 current_os = platform.system()
-timeout_duration = 1
+timeout_duration = 3
 # Set the checker filename based on the operating system
 if current_os == 'Linux':
     checker_filename = 'checker_linux'
@@ -15,8 +17,8 @@ elif current_os == 'Darwin':  # macOS
     checker_filename = 'checker_Mac'
 print(f'Current OS: {current_os}')
 print(f'Checker filename: {checker_filename}')
-if current_os == 'Darwin':
-    print("*** Memory Leak check is supported on Linux only. Skipping memory leak check on macOS. ***")
+#if current_os == 'Darwin':
+    #print("*** Memory Leak check is supported on Linux only. Skipping memory leak check on macOS. ***")
 yellow = "\033[1;33m"
 green = "\033[1;32m"
 red = "\033[1;31m"
@@ -34,17 +36,22 @@ if not os.path.exists(checker_filename) or not os.access("./"+checker_filename, 
     exit (1)
 
 
+
 def testcase(nbrs):
+    global testnbr
+    testnbr = testnbr + 1
     segfault = ""
     if current_os == 'Linux':
         result = subprocess.run(["timeout", str(timeout_duration), "valgrind", "--leak-check=full", "./push_swap", nbrs], stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
         output = result.stderr + result.stdout
         #output = output.decode()
+        #print(output)
         memory_usage = re.search(r"in use at exit: (\d+) bytes in", output)
         memory_errors = re.search(r"ERROR SUMMARY: (\d+) errors", output)
         num_inuse = 0
         if memory_usage:
             num_inuse = int(memory_usage.group(1))
+        #print(num_inuse)
         num_memerr = 0
         if memory_errors:
             num_memerr = int(memory_errors.group(1))
@@ -53,15 +60,28 @@ def testcase(nbrs):
         if "Segmentation fault" in result3.stderr or "Segmentation fault" in result2.stdout:
             segfault = f"{red}SegFault!{reset}"
     elif current_os == 'Darwin':  # macOS
-        result = subprocess.run(["leaks", "./push_swap", nbrs], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        output = result.stdout + result.stderr
-        output = output.decode()
-        num_inuse = re.search(r"total\s+(\d+)\s+bytes\s+leaked", output)
+        output= ""
+        with tempfile.TemporaryFile() as temp_file:
+            result = subprocess.run(["leaks" ,"-q","-atExit", "--", "./push_swap", nbrs],   stdout=temp_file, stderr=subprocess.DEVNULL, timeout=5)
+            temp_file.seek(0)
+            output = temp_file.read().decode().rstrip()
+        #print(result)
+        #output = result.stdout.decode().rstrip()
+        #output = output.decode()
+        #print(output)
+        #exit(1)
+        pattern = r"(\d+)\s+total leaked bytes"
+        match = re.search(pattern, output)
+        num_inuse = 0
+        if match:
+            num_inuse = int(match.group(1))
+        else:
+            num_inuse = 0
         num_memerr = 0
         result3 = subprocess.run(f"./push_swap {nbrs}", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
         result2 = subprocess.run(f"./push_swap {nbrs} | ./{checker_filename} {nbrs}", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
 
-    print(f"Numbers: {yellow}{nbrs.ljust(40)}{reset}", end=" ")
+    print(f"#{str(testnbr).rjust(2)} {yellow}{nbrs.ljust(40)}{reset}", end=" ")
     output3 = result3.stdout + result3.stderr
     exists_error = re.search(r"Error\n", output3)
     output2 = ""; output2 = result2.stdout + result2.stderr
@@ -87,6 +107,8 @@ def testcase(nbrs):
         print(f" Sorting: {res2}".ljust(15), end="")     
     print("")
 
+testcase("\"\"")
+testcase("\" \"")
 testcase("")
 testcase(" ")
 testcase("-")
@@ -104,6 +126,10 @@ testcase("4 6- 3")
 testcase("9 8 7 -6")
 testcase("2147483647 -2147483648")
 testcase("2147483648 -2147483649")
+testcase("9 9223372036854775807")
+testcase("9 -9223372036854775808")
+testcase("9 9223372036854775808")
+testcase("9 -9223372036854775809")
 testcase("0 1 2 3 4 5 6 7 8 9")
 testcase("5 3 1 2 4 6")
 testcase("2147483649 2147483649 2147483649")

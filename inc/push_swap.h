@@ -6,7 +6,7 @@
 /*   By: huaydin <huaydin@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 13:25:59 by huaydin           #+#    #+#             */
-/*   Updated: 2023/04/09 16:26:23 by huaydin          ###   ########.fr       */
+/*   Updated: 2023/08/30 19:20:04 by huaydin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,6 @@ void		initialize_stacks(int argc, char **argv, t_stacks *s);
 void		free_and_exit_with_message(t_stacks *s, char *msg);
 void		exit_if_sorted_or_has_duplicate(t_stacks *s, int i);
 int			is_array_sorted(t_stacks *s);
-int			ft_atol(const char *nptr, t_stacks *s);
+int			ft_atol(const char *n, t_stacks *s);
 
 #endif
