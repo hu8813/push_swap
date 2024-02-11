@@ -7,7 +7,7 @@ Push_swap is a project that involves sorting a list of integers using a limited 
 
 Do not forget to check for error handling & leaks if a number is bigger/smaller than max/min long int or long long int (overflow) ! 
 
-For testing for error handling and finding memory leaks, use my tester here:
+For testing error handling and finding memory leaks, use my tester here:
 
 Link to the tester's repository: (https://github.com/hu8813/tester_push_swap)
 
