@@ -7,6 +7,11 @@ Push_swap is a project that involves sorting a list of integers using a limited 
 
 Do not forget to check for error handling & leaks if a number is bigger/smaller than max/min long int or long long int (overflow) ! 
 
+For testing for error handling and finding memory leaks, use my tester here:
+
+Link to the tester's repository: (https://github.com/hu8813/tester_push_swap)
+
+
 ## Sorting results and points
 
 
@@ -37,7 +42,7 @@ Do not forget to check for error handling & leaks if a number is bigger/smaller 
     <td>855-857</td>
     <td><1300</td>
     <td>4/5</td>
-    <td><a target="_blank" href="https://bluegales.github.io/push-swap-pain/?&nbr=14,69,67,30,74,25,13,72,44,47,94,78,81,77,19,50,1,46,23,34,73,54,42,10,5,84,21,64,18,75,53,36,66,86,79,91,4,2,51,31,57,55,11,85,40,28,88,63,12,39,56,76,65,97,70,29,35,83,27,87,8,62,68,24,26,17,92,22,38,16,60,52,3,99,41,71,43,61,49,82,98,7,80,37,6,100,58,9,59,15,45,90,89,20,93,33,96,48,32,95&cmd=dkkddkkddkddkkkdkdkdkdddkdkddkkdddkkddkkkkkkdddkdkddkkdkkkkkdddddkddddddkkkkkkkddkdkdddkkkkdkdkkdddkjeeeejjeejeejjejjejjjjeeejjejjejjjjejeeejejeejeejedddddddddddddddddddddddddkkkddkkkkkkkkddkdkkdkddddddkdkddkdkkdddkkdkdkkddddeejeejjejjejeeeejejejjejjejejejejeejeejejjjeejejejddddddddddddddddddddddddkdkdkdkkddkddkkkdkkdkdkdddkkdkkdkdkdkdkdkdkkdkkdddeeejjejjjeeejjjeejeejejjeejjeejeeejjeejejjejeeejjeejddddddddddddddddddddddddkddkkkkddkdddddddkkkdkkkdkddkdkkkkddkdkkkkkdddddjejjeeeejejjeejejjejjjeejejeeejeejejjeejeejejejjeeejdddddddddddddddddddddddddkdkkdkkkdddkdkdkdkdkkddkkddkdkddkkdkkddkddkkdkdjeeeejjeejeeeejjeeejeejeejeeejejejeejeejjejejeejjjeeddddddddddddddddddddkkddkkkdkkdkkdkdkkkdkkdkkdkkdkkkdkkdkdkkkdkdkdkkejjejejejeejjejeejjeejjeejjejeejjeejjejejeejejejejejejejjeejejjedddddddddddddddddddddddddddddddddkkdkdkdjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj">link</a></td>
+    <td><a target="_blank" href="https://patrick-hacks.github.io/push-swap-pain/?&nbr=14,69,67,30,74,25,13,72,44,47,94,78,81,77,19,50,1,46,23,34,73,54,42,10,5,84,21,64,18,75,53,36,66,86,79,91,4,2,51,31,57,55,11,85,40,28,88,63,12,39,56,76,65,97,70,29,35,83,27,87,8,62,68,24,26,17,92,22,38,16,60,52,3,99,41,71,43,61,49,82,98,7,80,37,6,100,58,9,59,15,45,90,89,20,93,33,96,48,32,95&cmd=dkkddkkddkddkkkdkdkdkdddkdkddkkdddkkddkkkkkkdddkdkddkkdkkkkkdddddkddddddkkkkkkkddkdkdddkkkkdkdkkdddkjeeeejjeejeejjejjejjjjeeejjejjejjjjejeeejejeejeejedddddddddddddddddddddddddkkkddkkkkkkkkddkdkkdkddddddkdkddkdkkdddkkdkdkkddddeejeejjejjejeeeejejejjejjejejejejeejeejejjjeejejejddddddddddddddddddddddddkdkdkdkkddkddkkkdkkdkdkdddkkdkkdkdkdkdkdkdkkdkkdddeeejjejjjeeejjjeejeejejjeejjeejeeejjeejejjejeeejjeejddddddddddddddddddddddddkddkkkkddkdddddddkkkdkkkdkddkdkkkkddkdkkkkkdddddjejjeeeejejjeejejjejjjeejejeeejeejejjeejeejejejjeeejdddddddddddddddddddddddddkdkkdkkkdddkdkdkdkdkkddkkddkdkddkkdkkddkddkkdkdjeeeejjeejeeeejjeeejeejeejeeejejejeejeejjejejeejjjeeddddddddddddddddddddkkddkkkdkkdkkdkdkkkdkkdkkdkkdkkkdkkdkdkkkdkdkdkkejjejejejeejjejeejjeejjeejjejeejjeejjejejeejejejejejejejjeejejjedddddddddddddddddddddddddddddddddkkdkdkdjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj">link</a></td>
   </tr>
   <tr>
     <td>500</td>
@@ -67,10 +72,6 @@ This will output if the program passes the test, amount of operations necessary 
 Optionally, you can use the `checker` program to verify that the list is correctly sorted after the operations are applied. To do this, run the `checker` program with the list of integers and the list of operations as arguments. 
 
 ## Test and see how many points you can get
-
-For testing for error handling and finding memory leaks, use my tester here:
-
-Link to the tester's repository: (https://github.com/hu8813/tester_push_swap)
 
 run: perl push_swap_tester.pl size_of_stack how_many_tests  
 
