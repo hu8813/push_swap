@@ -1,6 +1,6 @@
 # update: not compatible with new subject
 
-according to new subject, you need in average less than 700 operations for 100 numbers and less than 5500 for 5500 numbers.
+according to new subject, you need in average less than 700 operations for 100 numbers and less than 5500 for 500 numbers.
 
 radix sort would not be enough to pass anymore!
 
