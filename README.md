@@ -1,9 +1,3 @@
-# Update: not compatible with new subject
-
-according to new subject, you need less than 700 operations for 100 numbers.
-
-radix sort would not be enough to pass anymore!
-
 # Push_swap using Radix sort
 
 Push_swap is a project that involves sorting a list of integers using a limited set of operations. The goal is to sort the list with the fewest possible number of operations.
