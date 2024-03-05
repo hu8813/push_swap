@@ -1,6 +1,6 @@
-# update: not compatible with new subject
+# Update: not compatible with new subject
 
-according to new subject, you need in average less than 700 operations for 100 numbers and less than 5500 for 500 numbers.
+according to new subject, you need in average less than 700 operations for 100 numbers.
 
 radix sort would not be enough to pass anymore!
 
@@ -8,7 +8,7 @@ radix sort would not be enough to pass anymore!
 
 Push_swap is a project that involves sorting a list of integers using a limited set of operations. The goal is to sort the list with the fewest possible number of operations.
 
-# Update
+# overflow handling
 
 Do not forget to check for error handling & leaks if a number is bigger/smaller than max/min long int or long long int (overflow) ! 
 
