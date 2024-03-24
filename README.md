@@ -105,8 +105,6 @@ Useful resources for understanding and implementing sorting algorithms for the P
 -   LIS sort (Longest Increasing Subsequence sort):
     
     -   Wikipedia page on longest increasing subsequence: [https://en.wikipedia.org/wiki/Longest_increasing_subsequence](https://en.wikipedia.org/wiki/Longest_increasing_subsequence)
-    -   A PDF on using LIS sort for push_swap: [https://v0tdou.csb.app/lis_sort.pdf](https://v0tdou.csb.app/lis_sort.pdf)
--   Insertion sort in small chunks:
     
     -   A tutorial on using insertion sort in small chunks for push_swap: [https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a](https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a)
     -   A video explanation of using insertion sort in small chunks: [https://youtu.be/ZHVk2blR45Q](https://youtu.be/ZHVk2blR45Q)
