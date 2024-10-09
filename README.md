@@ -41,7 +41,7 @@ Link to the tester's repository: (https://github.com/hu8813/tester_push_swap)
     <td>855-857</td>
     <td><1300</td>
     <td>4/5</td>
-    <td></td>
+    <td><a target="_blank" href="https://bluegales.github.io/push-swap-pain/?&nbr=14,69,67,30,74,25,13,72,44,47,94,78,81,77,19,50,1,46,23,34,73,54,42,10,5,84,21,64,18,75,53,36,66,86,79,91,4,2,51,31,57,55,11,85,40,28,88,63,12,39,56,76,65,97,70,29,35,83,27,87,8,62,68,24,26,17,92,22,38,16,60,52,3,99,41,71,43,61,49,82,98,7,80,37,6,100,58,9,59,15,45,90,89,20,93,33,96,48,32,95&cmd=dkkddkkddkddkkkdkdkdkdddkdkddkkdddkkddkkkkkkdddkdkddkkdkkkkkdddddkddddddkkkkkkkddkdkdddkkkkdkdkkdddkjeeeejjeejeejjejjejjjjeeejjejjejjjjejeeejejeejeejedddddddddddddddddddddddddkkkddkkkkkkkkddkdkkdkddddddkdkddkdkkdddkkdkdkkddddeejeejjejjejeeeejejejjejjejejejejeejeejejjjeejejejddddddddddddddddddddddddkdkdkdkkddkddkkkdkkdkdkdddkkdkkdkdkdkdkdkdkkdkkdddeeejjejjjeeejjjeejeejejjeejjeejeeejjeejejjejeeejjeejddddddddddddddddddddddddkddkkkkddkdddddddkkkdkkkdkddkdkkkkddkdkkkkkdddddjejjeeeejejjeejejjejjjeejejeeejeejejjeejeejejejjeeejdddddddddddddddddddddddddkdkkdkkkdddkdkdkdkdkkddkkddkdkddkkdkkddkddkkdkdjeeeejjeejeeeejjeeejeejeejeeejejejeejeejjejejeejjjeeddddddddddddddddddddkkddkkkdkkdkkdkdkkkdkkdkkdkkdkkkdkkdkdkkkdkdkdkkejjejejejeejjejeejjeejjeejjejeejjeejjejejeejejejejejejejjeejejjedddddddddddddddddddddddddddddddddkkdkdkdjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj">link</a></td>
   </tr>
   <tr>
     <td>500</td>
